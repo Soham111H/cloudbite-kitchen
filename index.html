@@ -3,17 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cloud Bite Kitchen - Premium Winter Desserts">
-    <title>Cloud Bite Kitchen | Winter Menu</title>
+    <meta name="theme-color" content="#7a0c12">
+    <title>Cloud Bite Kitchen</title>
     
+    <link rel="icon" type="image/png" href="logo.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <meta name="description" content="Cloud Bite Kitchen: Experience our exclusive Winter Dessert Affair featuring premium strawberries and artisanal brownies.">
     
+    <meta property="og:title" content="The Dessert Affair | Cloud Bite Kitchen">
+    <meta property="og:description" content="Limited Edition Winter Menu. Order your indulgence today.">
+    <meta property="og:image" content="https://soham111h.github.io/cloudbite-kitchen/logo.png"> <meta property="og:url" content="https://soham111h.github.io/cloudbite-kitchen/">
+    
+    <meta name="theme-color" content="#7a0c12">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div id="preloader">
+    <div class="loader-content">
+        <span class="loader-text">CBK.</span>
+        <div class="loader-line"></div>
+    </div>
+    </div>
 
     <div class="fixed-bg"></div>
     <div class="noise-overlay"></div>
@@ -30,14 +47,10 @@
         <div class="hero-content">
             <div class="hero-label anim-up">Welcome to</div>
             <h1 class="parallax-text">
-                <span class="block-reveal">Cloud Bite</span>
-                <span class="block-reveal italic">Kitchen</span>
+                <span class="block-reveal float-anim">Cloud Bite</span>
+                <span class="block-reveal italic float-anim" style="animation-delay: 0.2s;">Kitchen</span>
             </h1>
             <p class="hero-sub anim-up" style="transition-delay: 0.5s;">WHERE FLAVOR MEETS ART</p>
-        </div>
-        
-        <div class="scroll-indicator anim-up" style="transition-delay: 0.8s;">
-            <div class="mouse-icon"></div>
         </div>
     </header>
 
@@ -45,7 +58,9 @@
         <div class="glass-card anim-zoom">
             <div class="editorial-container">
                 <div class="editorial-img anim-left">
-                    <div class="img-placeholder">[ADD IMAGE HERE]</div>
+                    <div class="img-placeholder">
+                        <img src="image.png" alt="Winter Dessert" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                 </div>
                 <div class="editorial-text">
                     <span class="tiny-header anim-up">Our Philosophy</span>
@@ -71,61 +86,51 @@
                     <div class="menu-col">
                         <h3 class="col-title anim-right">Chocolate Dipped Strawberries</h3>
                         <div class="menu-list">
-                            <div class="menu-item stagger-anim">
-                                <span class="name">Milk Chocolate Strawberry</span>
-                                <span class="dots"></span>
-                                <span class="price">99</span>
+                            <div class="menu-item stagger-anim" id="item-1">
+                                <div class="item-details"><span class="name">Milk Chocolate Strawberry</span><span class="dots"></span><span class="price">99</span></div>
+                                <div class="qty-controls"><button class="qty-btn minus" onclick="updateQty('Milk Chocolate Strawberry', 99, -1, 'item-1')"><i class="fas fa-minus"></i></button><span class="qty-display">0</span><button class="qty-btn plus" onclick="updateQty('Milk Chocolate Strawberry', 99, 1, 'item-1')"><i class="fas fa-plus"></i></button></div>
                             </div>
-                            <div class="menu-item stagger-anim">
-                                <span class="name">Dark Chocolate Strawberry</span>
-                                <span class="dots"></span>
-                                <span class="price">119</span>
+                            <div class="menu-item stagger-anim" id="item-2">
+                                <div class="item-details"><span class="name">Dark Chocolate Strawberry</span><span class="dots"></span><span class="price">119</span></div>
+                                <div class="qty-controls"><button class="qty-btn minus" onclick="updateQty('Dark Chocolate Strawberry', 119, -1, 'item-2')"><i class="fas fa-minus"></i></button><span class="qty-display">0</span><button class="qty-btn plus" onclick="updateQty('Dark Chocolate Strawberry', 119, 1, 'item-2')"><i class="fas fa-plus"></i></button></div>
                             </div>
-                            <div class="menu-item stagger-anim">
-                                <span class="name">Triple Chocolate Strawberry</span>
-                                <span class="dots"></span>
-                                <span class="price">149</span>
+                            <div class="menu-item stagger-anim" id="item-3">
+                                <div class="item-details"><span class="name">Triple Chocolate Strawberry</span><span class="dots"></span><span class="price">149</span></div>
+                                <div class="qty-controls"><button class="qty-btn minus" onclick="updateQty('Triple Chocolate Strawberry', 149, -1, 'item-3')"><i class="fas fa-minus"></i></button><span class="qty-display">0</span><button class="qty-btn plus" onclick="updateQty('Triple Chocolate Strawberry', 149, 1, 'item-3')"><i class="fas fa-plus"></i></button></div>
                             </div>
-                            <div class="menu-item stagger-anim">
-                                <span class="name">KitKat Strawberry</span>
-                                <span class="dots"></span>
-                                <span class="price">169</span>
+                            <div class="menu-item stagger-anim" id="item-4">
+                                <div class="item-details"><span class="name">KitKat Strawberry</span><span class="dots"></span><span class="price">169</span></div>
+                                <div class="qty-controls"><button class="qty-btn minus" onclick="updateQty('KitKat Strawberry', 169, -1, 'item-4')"><i class="fas fa-minus"></i></button><span class="qty-display">0</span><button class="qty-btn plus" onclick="updateQty('KitKat Strawberry', 169, 1, 'item-4')"><i class="fas fa-plus"></i></button></div>
                             </div>
-                            <div class="menu-item stagger-anim">
-                                <span class="name">Oreo Strawberry</span>
-                                <span class="dots"></span>
-                                <span class="price">219</span>
+                            <div class="menu-item stagger-anim" id="item-5">
+                                <div class="item-details"><span class="name">Oreo Strawberry</span><span class="dots"></span><span class="price">219</span></div>
+                                <div class="qty-controls"><button class="qty-btn minus" onclick="updateQty('Oreo Strawberry', 219, -1, 'item-5')"><i class="fas fa-minus"></i></button><span class="qty-display">0</span><button class="qty-btn plus" onclick="updateQty('Oreo Strawberry', 219, 1, 'item-5')"><i class="fas fa-plus"></i></button></div>
                             </div>
-                            <div class="menu-item stagger-anim">
-                                <span class="name">Nutella Strawberry</span>
-                                <span class="dots"></span>
-                                <span class="price">249</span>
+                            <div class="menu-item stagger-anim" id="item-6">
+                                <div class="item-details"><span class="name">Nutella Strawberry</span><span class="dots"></span><span class="price">249</span></div>
+                                <div class="qty-controls"><button class="qty-btn minus" onclick="updateQty('Nutella Strawberry', 249, -1, 'item-6')"><i class="fas fa-minus"></i></button><span class="qty-display">0</span><button class="qty-btn plus" onclick="updateQty('Nutella Strawberry', 249, 1, 'item-6')"><i class="fas fa-plus"></i></button></div>
                             </div>
                         </div>
                     </div>
 
                     <div class="menu-col">
-                        <h3 class="col-title anim-right" style="transition-delay: 0.2s;">Artisanal Brownies</h3>
+                        <h3 class="col-title anim-right">Artisanal Brownies</h3>
                         <div class="menu-list">
-                            <div class="menu-item stagger-anim">
-                                <span class="name">Special Kulhad Brownie</span>
-                                <span class="dots"></span>
-                                <span class="price">119</span>
+                            <div class="menu-item stagger-anim" id="item-7">
+                                <div class="item-details"><span class="name">Special Kulhad Brownie</span><span class="dots"></span><span class="price">119</span></div>
+                                <div class="qty-controls"><button class="qty-btn minus" onclick="updateQty('Special Kulhad Brownie', 119, -1, 'item-7')"><i class="fas fa-minus"></i></button><span class="qty-display">0</span><button class="qty-btn plus" onclick="updateQty('Special Kulhad Brownie', 119, 1, 'item-7')"><i class="fas fa-plus"></i></button></div>
                             </div>
-                            <div class="menu-item stagger-anim">
-                                <span class="name">Black & White Fantasy</span>
-                                <span class="dots"></span>
-                                <span class="price">159</span>
+                            <div class="menu-item stagger-anim" id="item-8">
+                                <div class="item-details"><span class="name">Black & White Fantasy</span><span class="dots"></span><span class="price">159</span></div>
+                                <div class="qty-controls"><button class="qty-btn minus" onclick="updateQty('Black & White Fantasy', 159, -1, 'item-8')"><i class="fas fa-minus"></i></button><span class="qty-display">0</span><button class="qty-btn plus" onclick="updateQty('Black & White Fantasy', 159, 1, 'item-8')"><i class="fas fa-plus"></i></button></div>
                             </div>
-                            <div class="menu-item stagger-anim">
-                                <span class="name">Triple Choco Bowl</span>
-                                <span class="dots"></span>
-                                <span class="price">199</span>
+                            <div class="menu-item stagger-anim" id="item-9">
+                                <div class="item-details"><span class="name">Triple Choco Bowl</span><span class="dots"></span><span class="price">199</span></div>
+                                <div class="qty-controls"><button class="qty-btn minus" onclick="updateQty('Triple Choco Bowl', 199, -1, 'item-9')"><i class="fas fa-minus"></i></button><span class="qty-display">0</span><button class="qty-btn plus" onclick="updateQty('Triple Choco Bowl', 199, 1, 'item-9')"><i class="fas fa-plus"></i></button></div>
                             </div>
-                            <div class="menu-item stagger-anim">
-                                <span class="name">Strawberry Jar Brownie</span>
-                                <span class="dots"></span>
-                                <span class="price">219</span>
+                            <div class="menu-item stagger-anim" id="item-10">
+                                <div class="item-details"><span class="name">Strawberry Jar Brownie</span><span class="dots"></span><span class="price">219</span></div>
+                                <div class="qty-controls"><button class="qty-btn minus" onclick="updateQty('Strawberry Jar Brownie', 219, -1, 'item-10')"><i class="fas fa-minus"></i></button><span class="qty-display">0</span><button class="qty-btn plus" onclick="updateQty('Strawberry Jar Brownie', 219, 1, 'item-10')"><i class="fas fa-plus"></i></button></div>
                             </div>
                         </div>
                     </div>
@@ -133,34 +138,51 @@
 
                 <div class="card-footer-ornament anim-zoom" style="transition-delay: 0.5s;">❖</div>
             </div>
-
         </div>
     </section>
 
-    <section class="roadmap-section">
-        <div class="container">
-            <h2 class="roadmap-title gradient-text anim-up">HOW TO ORDER</h2>
-            
-            <div class="steps-wrapper">
-                <div class="step-card anim-up" style="transition-delay: 0.1s;">
-                    <div class="step-num">01</div>
-                    <h3>Select</h3>
-                    <p>Choose your indulgence</p>
-                </div>
-                <div class="step-card anim-up" style="transition-delay: 0.2s;">
-                    <div class="step-num">02</div>
-                    <h3>Message</h3>
-                    <p>DM us on Instagram</p>
-                </div>
-                <div class="step-card anim-up" style="transition-delay: 0.3s;">
-                    <div class="step-num">03</div>
-                    <h3>Enjoy</h3>
-                    <p>Delivered to you</p>
-                </div>
-            </div>
+    <div id="floating-cart" class="floating-cart" onclick="sendToWhatsApp()">
+        <div class="cart-info">
+            <span class="total-price" id="cart-total">₹0</span>
+            <span class="item-count" id="cart-count">0 items</span>
+        </div>
+        <div class="cart-action">
+            Order <i class="fab fa-whatsapp"></i>
+        </div>
+    </div>
 
-            <div class="cta-box anim-zoom" style="transition-delay: 0.4s;">
-                <a href="https://instagram.com" target="_blank" class="gold-btn">Order on Instagram</a>
+    <section class="order-section">
+        <div class="container">
+            <h2 class="order-title anim-up">HOW TO ORDER</h2>
+            
+            <div class="order-timeline">
+                <div class="order-step anim-up" style="transition-delay: 0.1s;">
+                    <div class="step-circle">1</div>
+                    <div class="step-text">
+                        <h3>Select</h3>
+                        <p>Add items using the + button.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-connector"></div>
+
+                <div class="order-step anim-up" style="transition-delay: 0.2s;">
+                    <div class="step-circle">2</div>
+                    <div class="step-text">
+                        <h3>Review</h3>
+                        <p>Check the total in your cart.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-connector"></div>
+
+                <div class="order-step anim-up" style="transition-delay: 0.3s;">
+                    <div class="step-circle">3</div>
+                    <div class="step-text">
+                        <h3>Send</h3>
+                        <p>Click order to open WhatsApp.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -168,30 +190,28 @@
     <footer>
         <div class="footer-content anim-up">
             <h2 class="footer-logo">CBK.</h2>
-            <div class="copyright-line">
-                &copy; 2025 Cloud Bite Kitchen. All Rights Reserved.
-            </div>
-            <div class="developer-line">
-                Developed by <span class="dev-name">Soham Halvadia</span>
-            </div>
+            <div class="copyright-line">&copy; 2025 Cloud Bite Kitchen. All Rights Reserved.</div>
+            <div class="developer-line">Developed by <span class="dev-name">Soham Halvadia</span></div>
         </div>
     </footer>
 
     <div id="winterModal" class="modal-overlay">
         <div class="highlight-card">
             <div class="close-x" onclick="closeWinterModal()">&times;</div>
-
+            
             <div class="snow-container">
+                <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
+                <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
                 <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
                 <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
             </div>
 
             <div class="highlight-content">
-                <div class="highlight-label">WINTER SPECIAL</div>
-                <h1 class="highlight-title">The<br>Dessert<br>Affair</h1>
-                <div class="highlight-divider"></div>
-                <p>A curated selection of winter indulgences.</p>
-                <button class="enter-btn" onclick="closeWinterModal()">Close</button>
+                <div class="highlight-label anim-up">WINTER SPECIAL</div>
+                <h1 class="highlight-title anim-zoom" style="transition-delay: 0.2s;">The<br>Dessert<br>Affair</h1>
+                <div class="highlight-divider anim-zoom" style="transition-delay: 0.4s;"></div>
+                <p class="anim-up" style="transition-delay: 0.5s;">A curated selection of winter indulgences.</p>
+                <button class="enter-btn anim-up" style="transition-delay: 0.6s;" onclick="closeWinterModal()">Start Ordering</button>
             </div>
         </div>
     </div>
