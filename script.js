@@ -1,45 +1,80 @@
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. Mouse Follower Logic
-    const cursor = document.querySelector('.cursor');
-    const follower = document.querySelector('.cursor-follower');
-    
-    let mouseX = 0, mouseY = 0, posX = 0, posY = 0;
+// --- AUTO POPUP ---
+window.addEventListener('load', () => {
+    setTimeout(() => { openWinterModal(); }, 1000); 
+});
 
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        
-        // Immediate move for dot
-        cursor.style.left = mouseX + 'px';
-        cursor.style.top = mouseY + 'px';
-    });
+function openWinterModal() {
+    const modal = document.getElementById('winterModal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; 
+}
 
-    // Lagging move for circle
-    setInterval(() => {
-        posX += (mouseX - posX) / 9;
-        posY += (mouseY - posY) / 9;
-        follower.style.left = posX + 'px';
-        follower.style.top = posY + 'px';
-    }, 15);
+function closeWinterModal() {
+    const modal = document.getElementById('winterModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; 
+}
 
-    // 2. Scroll Reveal
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
+// Scroll Helper
+function scrollToMenu() {
+    document.getElementById('menu').scrollIntoView({behavior: 'smooth'});
+}
+
+// --- ANIMATION OBSERVER ---
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            
+            // Staggered Animation for Menu List
+            if(entry.target.querySelector('.stagger-anim')) {
+                const items = entry.target.querySelectorAll('.stagger-anim');
+                items.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, index * 100); // 100ms delay between each item
+                });
             }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal-scroll').forEach(el => observer.observe(el));
-
-    // 3. Parallax Background
-    window.addEventListener('scroll', () => {
-        const scrolled = window.scrollY;
-        const heroBg = document.querySelector('.hero-bg');
-        if(heroBg) {
-            heroBg.style.transform = `scale(1.1) translateY(${scrolled * 0.4}px)`;
         }
+    });
+}, { threshold: 0.1 });
+
+// Initialize general animations
+const animatedElements = document.querySelectorAll('.anim-up, .anim-down, .anim-left, .anim-right, .anim-zoom');
+animatedElements.forEach(el => observer.observe(el));
+
+// Initialize Staggered elements (initially hidden via CSS/JS injection)
+const staggerContainers = document.querySelectorAll('.menu-list');
+staggerContainers.forEach(container => {
+    const items = container.querySelectorAll('.stagger-anim');
+    items.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'all 0.5s ease';
+    });
+    observer.observe(container);
+});
+
+
+// --- CURSOR ---
+const cursor = document.querySelector('.cursor');
+const follower = document.querySelector('.cursor-follower');
+
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    follower.style.left = e.clientX + 'px';
+    follower.style.top = e.clientY + 'px';
+});
+
+document.querySelectorAll('a, .menu-btn, button, .close-x, .menu-item').forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        follower.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        follower.style.background = 'rgba(253, 219, 136, 0.1)';
+    });
+    link.addEventListener('mouseleave', () => {
+        follower.style.transform = 'translate(-50%, -50%) scale(1)';
+        follower.style.background = 'transparent';
     });
 });
