@@ -3,50 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dessert Affairs | High Confectionery</title>
+    <meta name="description" content="Cloud Bite Kitchen - Premium Winter Desserts">
+    <title>Cloud Bite Kitchen | Winter Menu</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Syncopate:wght@400;700&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <div class="fixed-bg"></div>
     <div class="noise-overlay"></div>
+    
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
 
     <nav class="navbar">
-        <a href="#" class="logo">DA.</a>
-        <div class="menu-btn" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">MENU</div>
+        <a href="#" class="logo anim-down">CBK.</a>
+        <div class="menu-btn anim-down" style="transition-delay: 0.1s;" onclick="scrollToMenu()">THE MENU</div>
     </nav>
 
     <header class="hero">
-        <div class="hero-bg"></div>
         <div class="hero-content">
+            <div class="hero-label anim-up">Welcome to</div>
             <h1 class="parallax-text">
-                <div class="line-wrapper"><span class="line reveal-text">Dessert</span></div>
-                <div class="line-wrapper"><span class="line italic reveal-text" style="animation-delay: 0.2s;">Affairs</span></div>
+                <span class="block-reveal">Cloud Bite</span>
+                <span class="block-reveal italic">Kitchen</span>
             </h1>
-            <p class="hero-sub reveal-text" style="animation-delay: 0.4s;">EST. 2025</p>
+            <p class="hero-sub anim-up" style="transition-delay: 0.5s;">WHERE FLAVOR MEETS ART</p>
         </div>
         
-        <div class="scroll-indicator">
-            <span>Discover</span>
-            <div class="line"></div>
+        <div class="scroll-indicator anim-up" style="transition-delay: 0.8s;">
+            <div class="mouse-icon"></div>
         </div>
     </header>
 
     <section class="editorial">
-        <div class="editorial-container">
-            <div class="editorial-img reveal-scroll">
-                <img src="image.jpg" alt="Pouring Chocolate">
-            </div>
-            <div class="editorial-text reveal-scroll">
-                <span class="tiny-header">The Philosophy</span>
-                <h2>Taste is a <br><span class="highlight">Memory.</span></h2>
-                <p>We do not simply bake cakes. We engineer moments of silence. That precise second when the fork breaks the crust, and the world stops spinning. Handcrafted with Belgian couverture and locally sourced botanicals.</p>
+        <div class="glass-card anim-zoom">
+            <div class="editorial-container">
+                <div class="editorial-img anim-left">
+                    <div class="img-placeholder">[ADD IMAGE HERE]</div>
+                </div>
+                <div class="editorial-text">
+                    <span class="tiny-header anim-up">Our Philosophy</span>
+                    <h2 class="anim-up" style="transition-delay: 0.1s;">Taste the <br><span class="highlight">Extraordinary.</span></h2>
+                    <p class="anim-up" style="transition-delay: 0.2s;">We believe dessert is not just a dish, but an occasion. This winter, we invite you to experience our most curated collection yet.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -54,79 +59,142 @@
     <section id="menu" class="menu-section">
         <div class="container">
             
-            <div class="menu-category">
-                <h3 class="category-title reveal-scroll">Signatures</h3>
+            <div class="menu-header">
+                <h2 class="menu-title gradient-text anim-up">THE DESSERT AFFAIR</h2>
+                <div class="tiny-header anim-up" style="margin-top: 5px;">Winter Collection</div>
+            </div>
+
+            <div class="glass-menu-card anim-up" style="transition-delay: 0.2s;">
+                <div class="card-inner-frame"></div>
                 
-                <div class="menu-item reveal-scroll">
-                    <div class="item-header">
-                        <span class="item-name">The Velvet Truffle</span>
-                        <span class="dots"></span>
-                        <span class="item-price">550</span>
+                <div class="menu-grid">
+                    <div class="menu-col">
+                        <h3 class="col-title anim-right">Chocolate Dipped Strawberries</h3>
+                        <div class="menu-list">
+                            <div class="menu-item stagger-anim">
+                                <span class="name">Milk Chocolate Strawberry</span>
+                                <span class="dots"></span>
+                                <span class="price">99</span>
+                            </div>
+                            <div class="menu-item stagger-anim">
+                                <span class="name">Dark Chocolate Strawberry</span>
+                                <span class="dots"></span>
+                                <span class="price">119</span>
+                            </div>
+                            <div class="menu-item stagger-anim">
+                                <span class="name">Triple Chocolate Strawberry</span>
+                                <span class="dots"></span>
+                                <span class="price">149</span>
+                            </div>
+                            <div class="menu-item stagger-anim">
+                                <span class="name">KitKat Strawberry</span>
+                                <span class="dots"></span>
+                                <span class="price">169</span>
+                            </div>
+                            <div class="menu-item stagger-anim">
+                                <span class="name">Oreo Strawberry</span>
+                                <span class="dots"></span>
+                                <span class="price">219</span>
+                            </div>
+                            <div class="menu-item stagger-anim">
+                                <span class="name">Nutella Strawberry</span>
+                                <span class="dots"></span>
+                                <span class="price">249</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="item-desc">70% Dark Ghanian chocolate, gold dust, sea salt.</div>
+
+                    <div class="menu-col">
+                        <h3 class="col-title anim-right" style="transition-delay: 0.2s;">Artisanal Brownies</h3>
+                        <div class="menu-list">
+                            <div class="menu-item stagger-anim">
+                                <span class="name">Special Kulhad Brownie</span>
+                                <span class="dots"></span>
+                                <span class="price">119</span>
+                            </div>
+                            <div class="menu-item stagger-anim">
+                                <span class="name">Black & White Fantasy</span>
+                                <span class="dots"></span>
+                                <span class="price">159</span>
+                            </div>
+                            <div class="menu-item stagger-anim">
+                                <span class="name">Triple Choco Bowl</span>
+                                <span class="dots"></span>
+                                <span class="price">199</span>
+                            </div>
+                            <div class="menu-item stagger-anim">
+                                <span class="name">Strawberry Jar Brownie</span>
+                                <span class="dots"></span>
+                                <span class="price">219</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="menu-item reveal-scroll">
-                    <div class="item-header">
-                        <span class="item-name">Parisian Rose</span>
-                        <span class="dots"></span>
-                        <span class="item-price">620</span>
-                    </div>
-                    <div class="item-desc">Lychee mousse, rose petal infusion, pistachio crust.</div>
-                </div>
-            </div>
-
-            <div class="menu-category">
-                <h3 class="category-title reveal-scroll">Petite</h3>
-
-                <div class="menu-item reveal-scroll">
-                    <div class="item-header">
-                        <span class="item-name">Noir Eclair</span>
-                        <span class="dots"></span>
-                        <span class="item-price">350</span>
-                    </div>
-                    <div class="item-desc">Choux pastry, hazelnut praline, mirror glaze.</div>
-                </div>
-
-                <div class="menu-item reveal-scroll">
-                    <div class="item-header">
-                        <span class="item-name">Lemon Cloud</span>
-                        <span class="dots"></span>
-                        <span class="item-price">300</span>
-                    </div>
-                    <div class="item-desc">Zesty lemon curd, burnt italian meringue, tart shell.</div>
-                </div>
-            </div>
-
-            <div class="cta-container">
-                <a href="YOUR_INSTAGRAM_LINK_HERE" target="_blank" class="magnetic-btn">
-                    <span class="btn-text">Place Order</span>
-                </a>
+                <div class="card-footer-ornament anim-zoom" style="transition-delay: 0.5s;">❖</div>
             </div>
 
         </div>
     </section>
 
-    <footer>
-        <div class="footer-content">
-            <h2 class="footer-logo">DESSERT AFFAIRS</h2>
+    <section class="roadmap-section">
+        <div class="container">
+            <h2 class="roadmap-title gradient-text anim-up">HOW TO ORDER</h2>
             
-            <div class="footer-nav">
-                <a href="YOUR_INSTAGRAM_LINK_HERE" target="_blank">Instagram</a>
-                <a href="#">WhatsApp</a>
-                <a href="mailto:contact@dessertaffairs.com">Email</a>
+            <div class="steps-wrapper">
+                <div class="step-card anim-up" style="transition-delay: 0.1s;">
+                    <div class="step-num">01</div>
+                    <h3>Select</h3>
+                    <p>Choose your indulgence</p>
+                </div>
+                <div class="step-card anim-up" style="transition-delay: 0.2s;">
+                    <div class="step-num">02</div>
+                    <h3>Message</h3>
+                    <p>DM us on Instagram</p>
+                </div>
+                <div class="step-card anim-up" style="transition-delay: 0.3s;">
+                    <div class="step-num">03</div>
+                    <h3>Enjoy</h3>
+                    <p>Delivered to you</p>
+                </div>
             </div>
 
-            <div class="footer-bottom">
-                <div class="copyright-text">
-                    &copy; 2025 Dessert Affairs. All Rights Reserved.
-                </div>
-                <div class="developer-credit">
-                    Designed by <span class="dev-name">Soham Halvadia</span>
-                </div>
+            <div class="cta-box anim-zoom" style="transition-delay: 0.4s;">
+                <a href="https://instagram.com" target="_blank" class="gold-btn">Order on Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content anim-up">
+            <h2 class="footer-logo">CBK.</h2>
+            <div class="copyright-line">
+                &copy; 2025 Cloud Bite Kitchen. All Rights Reserved.
+            </div>
+            <div class="developer-line">
+                Developed by <span class="dev-name">Soham Halvadia</span>
             </div>
         </div>
     </footer>
+
+    <div id="winterModal" class="modal-overlay">
+        <div class="highlight-card">
+            <div class="close-x" onclick="closeWinterModal()">&times;</div>
+
+            <div class="snow-container">
+                <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
+                <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
+            </div>
+
+            <div class="highlight-content">
+                <div class="highlight-label">WINTER SPECIAL</div>
+                <h1 class="highlight-title">The<br>Dessert<br>Affair</h1>
+                <div class="highlight-divider"></div>
+                <p>A curated selection of winter indulgences.</p>
+                <button class="enter-btn" onclick="closeWinterModal()">Close</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
